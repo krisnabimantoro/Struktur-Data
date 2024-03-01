@@ -13,11 +13,10 @@ public class Main {
     System.out.print("Masukkan harga: ");
     int harga = sc.nextInt();
 
-    output tampil = new output();
-    tampil.main(args);
+    Main obj = new Main();
+    obj.output();
 
     System.out.print("Piih Jenis Barang: ");
-
     int y = sc.nextInt();
 
     sc.close();
@@ -28,19 +27,13 @@ public class Main {
       Jenis.values()[y - 1]
     );
 
-    System.out.println("Informasi Barang: ");
+    System.out.println("\nInformasi Barang: ");
     System.out.println("Nama: " + barang.getKey());
     System.out.println("Harga: " + barang.getValue());
     System.out.println("Jenis: " + barang.getJenis());
   }
-}
 
-/**
- * output
- */
-class output {
-
-  public void main(String[] args) {
+  public void output() {
     int x = 0;
     for (Jenis jenisBarang : Jenis.values()) {
       x++;
