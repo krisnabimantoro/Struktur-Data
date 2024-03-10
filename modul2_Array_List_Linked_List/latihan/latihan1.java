@@ -2,9 +2,12 @@ package Praktikum.modul2_Array_List_Linked_List.latihan;
 
 import java.util.ArrayList;
 
+
+
 public class latihan1 {
 
   public static void main(String[] args) {
+    
     ArrayList<String> daftarNama = new ArrayList<>();
 
     daftarNama.add("Iqbal");
@@ -32,8 +35,8 @@ public class latihan1 {
       System.out.println(nama);
     }
 
-    System.out.println("Jumlah elemen dalam ArrayList: "+ daftarNama.size());
-  
-    System.out.println("Apakah ArrayList kosong? "+ daftarNama.isEmpty());
+    System.out.println("Jumlah elemen dalam ArrayList: " + daftarNama.size());
+
+    System.out.println("Apakah ArrayList kosong? " + daftarNama.isEmpty());
   }
 }
