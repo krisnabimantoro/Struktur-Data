@@ -11,14 +11,12 @@ class Contact {
     this.nama = nama;
     this.phonenumber = phonenumber;
   }
-
 }
 
 class ContactManager {
 
   ArrayList<Contact> daftarKontak = new ArrayList<>();
   Scanner sc = new Scanner(System.in);
-
 
   public void addContact() {
     System.out.print("Masukkan nama kontak: ");
@@ -34,7 +32,6 @@ class ContactManager {
   }
 
   public void displayContact() {
-
     for (int index = 0; index < daftarKontak.size(); index++) {
       String stringValue = daftarKontak.get(index).nama;
       int intValue = daftarKontak.get(index).phonenumber;
@@ -43,7 +40,24 @@ class ContactManager {
     }
   }
 
-  public void searchContact() {}
+  public void searchContact() {
+    System.out.print("Masukkan nama kontak yang ingin dicari: ");
+    String nama = sc.next();
+
+    for (int index = 0; index < daftarKontak.size(); index++) {
+      String stringValue = daftarKontak.get(index).nama;
+      int intValue = daftarKontak.get(index).phonenumber;
+
+      if (stringValue.equalsIgnoreCase(nama)) {
+        System.out.println("Kontak ditemukan");
+
+        System.out.println("Nama: " + stringValue);
+        System.out.println("Nomor Telepon: " + intValue);
+      } else {
+        System.out.println("Kontak tidak ditemukan");
+      }
+    }
+  }
 }
 
 public class tugas1 {
@@ -52,20 +66,20 @@ public class tugas1 {
     Scanner sc = new Scanner(System.in);
 
     ContactManager objContact = new ContactManager();
-   
+
     while (true) {
       int pilih;
-  
+
       System.out.println("Selamat datang di Manajemen Kontak!");
       System.out.println(
         "1. Tambah Kontak \n2. Tampilkan Kontak \n3. Cari Kontak \n4. Keluar"
       );
-  
+
       System.out.print("Pilih menu (1/2/3/4) : ");
       pilih = sc.nextInt();
-    
+
       if (pilih == 1) {
-        objContact.addContact(); 
+        objContact.addContact();
       } else if (pilih == 2) {
         objContact.displayContact();
       } else if (pilih == 3) {
@@ -73,6 +87,9 @@ public class tugas1 {
       } else {
         System.exit(1);
       }
+      sc.close();
     }
+
+    
   }
 }
