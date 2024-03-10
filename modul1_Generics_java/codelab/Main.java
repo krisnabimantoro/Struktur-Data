@@ -1,5 +1,6 @@
+package Praktikum.modul1_Generics_java.codelab;
 
-package codelab;
+
 
 class Box<T> {
 

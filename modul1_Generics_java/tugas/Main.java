@@ -1,4 +1,6 @@
-package tugas;
+package Praktikum.modul1_Generics_java.tugas;
+
+
 
 
 import java.util.Scanner;

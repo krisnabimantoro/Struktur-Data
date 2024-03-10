@@ -32,17 +32,22 @@ class ContactManager {
   }
 
   public void displayContact() {
-    for (int index = 0; index < daftarKontak.size(); index++) {
-      String stringValue = daftarKontak.get(index).nama;
-      int intValue = daftarKontak.get(index).phonenumber;
+    if (daftarKontak.size() == 0) {
+      System.out.println("Daftar kontak kosong");
+    } else {
+      for (int index = 0; index < daftarKontak.size(); index++) {
+        String stringValue = daftarKontak.get(index).nama;
+        int intValue = daftarKontak.get(index).phonenumber;
 
-      System.out.println(index + 1 + ". " + stringValue + " - " + intValue);
+        System.out.println(index + 1 + ". " + stringValue + " - " + intValue);
+      }
     }
   }
 
   public void searchContact() {
     System.out.print("Masukkan nama kontak yang ingin dicari: ");
     String nama = sc.next();
+    boolean ditemukan = false;
 
     for (int index = 0; index < daftarKontak.size(); index++) {
       String stringValue = daftarKontak.get(index).nama;
@@ -53,9 +58,12 @@ class ContactManager {
 
         System.out.println("Nama: " + stringValue);
         System.out.println("Nomor Telepon: " + intValue);
-      } else {
-        System.out.println("Kontak tidak ditemukan");
-      }
+
+        ditemukan=true;
+      } 
+    }
+    if (ditemukan==false) {
+      System.out.println("Kontak tidak ditemukan");
     }
   }
 }
@@ -70,7 +78,7 @@ public class tugas1 {
     while (true) {
       int pilih;
 
-      System.out.println("Selamat datang di Manajemen Kontak!");
+      System.out.println("\nSelamat datang di Manajemen Kontak!");
       System.out.println(
         "1. Tambah Kontak \n2. Tampilkan Kontak \n3. Cari Kontak \n4. Keluar"
       );
@@ -87,9 +95,7 @@ public class tugas1 {
       } else {
         System.exit(1);
       }
-      sc.close();
+     
     }
-
-    
   }
 }
