@@ -1,4 +1,4 @@
-package Praktikum.modul2_Array_List_Linked_List.latihan;
+package Praktikum.modul2.latihan;
 
 class Node {
 

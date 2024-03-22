@@ -1,16 +1,18 @@
-package Praktikum.modul2_Array_List_Linked_List.tugas;
+package Praktikum.modul2.tugas;
 
+import java.math.BigInteger;
 import java.util.*;
 
 class Contact {
 
   String nama;
-  int phonenumber;
-
-  public Contact(String nama, int phonenumber) {
+  BigInteger phonenumber;
+  
+  public Contact(String nama, BigInteger phonenumber) {
     this.nama = nama;
     this.phonenumber = phonenumber;
   }
+
 }
 
 class ContactManager {
@@ -23,8 +25,8 @@ class ContactManager {
     String nama = sc.next();
 
     System.out.print("Masukkan nomor telepon: ");
-    int nomor = sc.nextInt();
-
+   
+    BigInteger nomor = sc.nextBigInteger();
     Contact objContact = new Contact(nama, nomor);
 
     daftarKontak.add(objContact);
@@ -37,9 +39,11 @@ class ContactManager {
     } else {
       for (int index = 0; index < daftarKontak.size(); index++) {
         String stringValue = daftarKontak.get(index).nama;
-        int intValue = daftarKontak.get(index).phonenumber;
+        BigInteger intValue = daftarKontak.get(index).phonenumber;
 
-        System.out.println(index + 1 + ". " + stringValue + " - " + intValue);
+        System.out.println(
+          index + 1 + ". " + stringValue + " - " + "+62 " + intValue
+        );
       }
     }
   }
@@ -51,24 +55,24 @@ class ContactManager {
 
     for (int index = 0; index < daftarKontak.size(); index++) {
       String stringValue = daftarKontak.get(index).nama;
-      int intValue = daftarKontak.get(index).phonenumber;
+      BigInteger intValue = daftarKontak.get(index).phonenumber;
 
       if (stringValue.equalsIgnoreCase(nama)) {
         System.out.println("Kontak ditemukan");
 
         System.out.println("Nama: " + stringValue);
-        System.out.println("Nomor Telepon: " + intValue);
+        System.out.println("Nomor Telepon: " + "+62 " + intValue);
 
-        ditemukan=true;
-      } 
+        ditemukan = true;
+      }
     }
-    if (ditemukan==false) {
+    if (ditemukan == false) {
       System.out.println("Kontak tidak ditemukan");
     }
   }
 }
 
-public class tugas1 {
+public class arrayList {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
@@ -95,7 +99,7 @@ public class tugas1 {
       } else {
         System.exit(1);
       }
-     
+   
     }
   }
 }

@@ -1,31 +1,17 @@
-package Praktikum.modul2_Array_List_Linked_List.tugas;
+package Praktikum.modul2;
 
-import java.util.*;
+import java.util.Scanner;
 
 class Node {
 
   String name;
-  int phoneNumber;
+  String phoneNumber;
   Node next;
 
-  public Node(String name, int phoneNumber) {
+  public Node(String name, String phoneNumber) {
     this.name = name;
     this.phoneNumber = phoneNumber;
     this.next = null;
-  }
-
-  Node reverse(Node node) {
-    Node prev = null;
-    Node current = node;
-    Node next = null;
-    while (current != null) {
-      next = current.next;
-      current.next = prev;
-      prev = current;
-      current = next;
-    }
-    node = prev;
-    return node;
   }
 }
 
@@ -39,7 +25,7 @@ class ContactManager {
     String nama = sc.next();
 
     System.out.print("Masukkan nomor telepon: ");
-    int nomor = sc.nextInt();
+    String nomor = sc.next();
 
     Node objContact = new Node(nama, nomor);
 
@@ -52,15 +38,17 @@ class ContactManager {
       }
       current.next = objContact;
     }
+
     System.out.println("Kontak berhasil ditambahkan!");
   }
 
   public void displayContact() {
+    int index = 0;
     if (head == null) {
       System.out.println("Daftar kontak kosong");
-    } else {
+    } else if (index == 0) {}
+    {
       Node current = head;
-      int index = 0;
       while (current != null) {
         System.out.println(
           index + 1 + ". " + current.name + " - " + current.phoneNumber
