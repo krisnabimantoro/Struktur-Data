@@ -20,12 +20,12 @@ public class StackLib {
     System.out.println(s.empty());
 
     System.out.println("Peek " + s.peek());
-    System.out.println("Animals: "+ s);
-    
+    System.out.println("Animals: " + s);
+
     s.pop();
     s.pop();
-    
-    System.out.println("Animals: "+ s);
-    System.out.println("Position of Kuda: "+ s.search("Kuda"));
+
+    System.out.println("Animals: " + s);
+    System.out.println("Position of Kuda: " + s.search("Kuda"));
   }
 }
