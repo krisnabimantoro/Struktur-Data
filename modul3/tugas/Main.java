@@ -2,9 +2,7 @@ package Praktikum.modul3.tugas;
 
 import java.util.Scanner;
 
-/**
- * Link
- */
+
 class Link {
 
   public int id, jumlahTiket;
@@ -24,9 +22,7 @@ class Link {
   }
 }
 
-/**
- * Queue
- */
+
 class QueueList {
 
   public Link front;
@@ -70,9 +66,7 @@ class QueueList {
   }
 }
 
-/**
- * LinkQueue
- */
+
 class LinkQueue {
 
   public QueueList theList;
@@ -122,6 +116,7 @@ public class Main {
     ulangi = "n";
 
     q.displayQueue();
+    
     do {
       System.out.print("Apakah anda ingin menghapus (y/n): ");
       hapus = sc.next();
