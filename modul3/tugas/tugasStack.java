@@ -34,6 +34,7 @@ public class tugasStack {
 
   public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
+
     String[] url = {
       "https://www.example.com/page1",
       "https://www.example.com/page2",
@@ -41,6 +42,7 @@ public class tugasStack {
       "https://www.example.com/page4",
       "https://www.example.com/page5",
     };
+
     tugasStack stackUrl = new tugasStack(url.length);
 
     System.out.println("List link: ");
@@ -48,6 +50,7 @@ public class tugasStack {
       stackUrl.visitURL(isiUrl);
       System.out.println(stackUrl.getCurrentURL());
     }
+    
     System.out.println(" ");
 
     System.out.println("Anda sekarang mengakses link: ");
@@ -65,13 +68,17 @@ public class tugasStack {
 
       pilih = sc.nextInt();
       if (pilih == 1) {
-        stackUrl.back();
-        if (stackUrl.isEmpty()) {
+        try {
+          stackUrl.back();
+          if (stackUrl.isEmpty()) {
+            System.out.println("Tidak ada link sebelumnya");
+          } else {
+            System.out.println(
+              "\nAnda sekarang mengakses link: \n" + stackUrl.getCurrentURL()
+            );
+          }
+        } catch (Exception e) {
           System.out.println("Tidak ada link sebelumnya");
-        } else {
-          System.out.println(
-            "\nAnda sekarang mengakses link: \n" + stackUrl.getCurrentURL()
-          );
         }
       } else if (pilih == 2) {
         try {

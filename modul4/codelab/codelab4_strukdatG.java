@@ -1,4 +1,4 @@
-package Praktikum.modul4;
+package Praktikum.modul4.codelab;
 
 import java.util.HashMap;
 import java.util.Scanner;
