@@ -20,6 +20,7 @@ public class kegiatan1 {
         System.out.println("- Kandidat C");
         System.out.println("- Kandidat A");
 
+        System.out.println("Vote: ");
 
     }
 }
