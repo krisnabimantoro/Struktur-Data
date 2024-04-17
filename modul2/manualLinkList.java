@@ -90,6 +90,7 @@ class ContactManager {
 public class manualLinkList {
 
   public static void main(String[] args) {
+    @SuppressWarnings("resource")
     Scanner sc = new Scanner(System.in);
 
     ContactManager objContact = new ContactManager();

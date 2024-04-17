@@ -97,6 +97,7 @@ public class Main {
   public static void main(String[] args) {
     LinkQueue q = new LinkQueue();
 
+    @SuppressWarnings("resource")
     Scanner sc = new Scanner(System.in);
     String ulangi, hapus;
     int id = 0;

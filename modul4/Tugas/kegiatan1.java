@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class kegiatan1 {
 
-  public static void main(String[] args) {
+  @SuppressWarnings("resource")
+public static void main(String[] args) {
     Scanner sc = new Scanner(System.in);
     HashMap<String, Integer> candidates = new HashMap<>();
 

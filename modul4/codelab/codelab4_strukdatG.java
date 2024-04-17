@@ -25,6 +25,7 @@ public class codelab4_strukdatG {
 
     System.out.println("Inventori setelah update: " + inventori);
 
+    @SuppressWarnings("resource")
     Scanner scanner = new Scanner(System.in);
     System.out.println("Masukkan nama barang yang ini dicari: ");
     String barang = scanner.nextLine();

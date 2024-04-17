@@ -99,7 +99,7 @@ public class arrayList {
       } else {
         System.exit(1);
       }
-   
+   sc.close();
     }
   }
 }
