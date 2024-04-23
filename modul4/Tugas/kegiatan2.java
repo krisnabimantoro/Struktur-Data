@@ -12,16 +12,12 @@ public class kegiatan2 {
   static Scanner sc = new Scanner(System.in);
 
   public static void main(String[] args) {
-    dataUser.add("Krisna");
-    dataUser.add(13);
-    
+    obj.menu();
 
-    usersDetails.put("Krisnabmntr", dataUser);
-   
+
     for (String mail : usersDetails.keySet()) {
       System.out.println(mail + usersDetails.get(mail));
     }
-    
 
     System.out.println("Selamat datang di Sistem Voting Online");
   }
@@ -29,7 +25,20 @@ public class kegiatan2 {
   public void menu() {
     System.out.println("Selamat datang di Sistem Voting Online");
     System.out.println("Pilih menu:");
-    System.out.println("Pilih menu:");
+    System.out.println("1. Login");
+    System.out.println("2. Daftar");
+    System.out.println("3. Hasil Vote");
+    System.out.print("Pilihan anda : ");
+
+    int pilih = sc.nextInt();
+
+    if (pilih == 1) {
+      obj.login();
+    } else if (pilih == 2) {
+      obj.register();
+    } else if (pilih == 3) {
+      obj.hasil();
+    }
   }
 
   public void register() {
@@ -39,7 +48,7 @@ public class kegiatan2 {
     System.out.print("Input nama: ");
     nama = sc.next();
 
-    System.out.print("\nInput email: ");
+    System.out.print("Input email: ");
     email = sc.next();
 
     for (String checkEmail : usersDetails.keySet()) {
@@ -48,11 +57,10 @@ public class kegiatan2 {
       }
     }
 
-
-    System.out.print("\nInput nik: ");
+    System.out.print("Input nik: ");
     nik = sc.nextInt();
 
-    System.out.print("\nInput password: ");
+    System.out.print("Input password: ");
     password = sc.next();
 
     dataUser.add(nama);
@@ -60,6 +68,7 @@ public class kegiatan2 {
     usersDetails.put(email, dataUser);
 
     users.put(email, password);
+    obj.menu();
   }
 
   public void login() {
@@ -70,4 +79,6 @@ public class kegiatan2 {
   }
 
   public void pemilihan() {}
+
+  public void hasil() {}
 }
