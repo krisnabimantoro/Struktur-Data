@@ -19,7 +19,6 @@ public class kegiatan2 {
       System.out.println(mail + usersDetails.get(mail));
     }
 
-    System.out.println("Selamat datang di Sistem Voting Online");
   }
 
   public void menu() {
@@ -33,7 +32,7 @@ public class kegiatan2 {
     int pilih = sc.nextInt();
 
     if (pilih == 1) {
-      obj.login();
+      obj.login("asd","as");
     } else if (pilih == 2) {
       obj.register();
     } else if (pilih == 3) {
@@ -51,17 +50,18 @@ public class kegiatan2 {
     System.out.print("Input email: ");
     email = sc.next();
 
-    for (String checkEmail : usersDetails.keySet()) {
-      if (email.equals(checkEmail)) {
-        System.out.println("Email sudah ada!");
-      }
-    }
-
-    System.out.print("Input nik: ");
-    nik = sc.nextInt();
+    // for (String checkEmail : usersDetails.keySet()) {
+    //   if (email.equals(checkEmail)) {
+    //     System.out.println("Email sudah ada!");
+    //   }
+    // }
 
     System.out.print("Input password: ");
     password = sc.next();
+    
+    System.out.print("Input nik: ");
+    nik = sc.nextInt();
+
 
     dataUser.add(nama);
     dataUser.add(nik);
@@ -71,12 +71,17 @@ public class kegiatan2 {
     obj.menu();
   }
 
-  public void login() {
-    for (String key : usersDetails.keySet()) {
-      System.out.println(key + usersDetails.get(key));
+  public void login(String email, String password) {
+
+    System.out.print("Input email: ");
+    email = sc.next();
+    
+    System.out.print("Input password: ");
+    password = sc.next();
+
+
+
     }
-    System.out.println(dataUser.get(0));
-  }
 
   public void pemilihan() {}
 
