@@ -20,15 +20,6 @@ public class kegiatan2 {
     candidates.put("C", 0);
     candidates.put("B", 0);
 
-    // users.put("sd@gmail.com", "123");
-    // dataUser.add("krs");
-    // dataUser.add(12);
-    // usersDetails.put("as@gmail.com", dataUser);
-
-    // for (Object x : usersDetails.keySet()) {
-    //   System.out.println(usersDetails.get(x));
-    // }
-
     obj.menu();
   }
 
@@ -85,7 +76,7 @@ public class kegiatan2 {
     //NIK
 
     do {
-      try {
+      // try {
         System.out.print("Input NIK: ");
         nik = sc.nextInt();
 
@@ -97,10 +88,10 @@ public class kegiatan2 {
             cekNik = false;
           }
         }
-      } catch (Exception e) {
-        System.out.println("Input data tidak sesuai");
-        cekNik = true;
-      }
+      // } catch (Exception e) {
+      //   System.out.println("Input data tidak sesuai");
+      //   cekNik = true;
+      // }
     } while (cekNik);
 
     users.put(email, password);
