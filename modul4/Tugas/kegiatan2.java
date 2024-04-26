@@ -7,12 +7,11 @@ public class kegiatan2 {
   static HashMap<String, String> users = new HashMap<>();
   static HashMap<String, ArrayList<Object>> usersDetails = new HashMap<>();
   static HashMap<String, Integer> candidates = new HashMap<>();
+  static HashMap<String, Boolean> pemilihan = new HashMap<>();
   // static ArrayList<Object> dataUser = new ArrayList<>();
 
   static kegiatan2 obj = new kegiatan2();
   static Scanner sc = new Scanner(System.in);
-
-  static int pemilihan = 0;
 
   public static void main(String[] args) {
     System.out.println("Selamat datang di Sistem Voting Online");
@@ -84,11 +83,9 @@ public class kegiatan2 {
     password = sc.next();
 
     //NIK
-    
 
     do {
       try {
-         
         System.out.print("Input NIK: ");
         nik = sc.nextInt();
 
@@ -103,11 +100,8 @@ public class kegiatan2 {
       } catch (Exception e) {
         System.out.println("Input data tidak sesuai");
         cekNik = true;
-       
       }
     } while (cekNik);
-
-
 
     users.put(email, password);
 
@@ -116,10 +110,10 @@ public class kegiatan2 {
     dataUser.add(nik);
     usersDetails.put(email, dataUser);
 
-    for (Object mail : usersDetails.keySet()) {
-      System.out.println(mail);
-      System.out.println(usersDetails.get(mail));
-    }
+    // for (Object mail : usersDetails.keySet()) {
+    //   System.out.println(mail);
+    //   System.out.println(usersDetails.get(mail));
+    // }
 
     System.out.println("Berhasil mendaftar");
     obj.menu();
@@ -146,7 +140,20 @@ public class kegiatan2 {
       System.out.println("Login berhasil");
       System.out.println("Nama: " + userInfo.get(0));
       System.out.println("NIK: " + userInfo.get(1));
-      obj.pemilihan();
+
+      if (pemilihan.containsKey(email)) {
+        pemilihan.put(email, false);
+      } else {
+        pemilihan.put(email, true);
+      }
+
+      if (pemilihan.get(email) == false) {
+        System.out.println("Akun sudah memvoting");
+        obj.hasil();
+      } else {
+        pemilihan.put(email, false);
+        obj.pemilihan();
+      }
     } else {
       System.out.println("Gagal login");
       obj.login();
