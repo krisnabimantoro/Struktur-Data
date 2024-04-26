@@ -12,6 +12,8 @@ public class kegiatan2 {
   static kegiatan2 obj = new kegiatan2();
   static Scanner sc = new Scanner(System.in);
 
+  static int pemilihan = 0;
+
   public static void main(String[] args) {
     System.out.println("Selamat datang di Sistem Voting Online");
 
@@ -36,6 +38,7 @@ public class kegiatan2 {
     System.out.println("1. Login");
     System.out.println("2. Daftar");
     System.out.println("3. Hasil Vote");
+    System.out.println("4. Keluar");
     System.out.print("Pilihan anda : ");
 
     int pilih = sc.nextInt();
@@ -46,12 +49,14 @@ public class kegiatan2 {
       obj.register();
     } else if (pilih == 3) {
       obj.hasil();
+    } else {
+      System.exit(1);
     }
   }
 
   public void register() {
     String email, nama, password;
-    int nik;
+    int nik = 0;
     boolean cekEmail = false, cekNik = false;
 
     //nama
@@ -79,19 +84,30 @@ public class kegiatan2 {
     password = sc.next();
 
     //NIK
-    do {
-      System.out.print("Input NIK: ");
-      nik = sc.nextInt();
+    
 
-      for (ArrayList<Object> x : usersDetails.values()) {
-        if ((int) x.get(1) == nik) {
-          cekNik = true;
-          System.out.println("NIK sudah tersedia");
-        } else {
-          cekNik = false;
+    do {
+      try {
+         
+        System.out.print("Input NIK: ");
+        nik = sc.nextInt();
+
+        for (ArrayList<Object> x : usersDetails.values()) {
+          if ((int) x.get(1) == nik) {
+            cekNik = true;
+            System.out.println("NIK sudah tersedia");
+          } else {
+            cekNik = false;
+          }
         }
+      } catch (Exception e) {
+        System.out.println("Input data tidak sesuai");
+        cekNik = true;
+       
       }
     } while (cekNik);
+
+
 
     users.put(email, password);
 
@@ -110,8 +126,9 @@ public class kegiatan2 {
   }
 
   public void login() {
-    String email, nama, password;
-    int nik;
+    String email, password;
+
+    // try {
     System.out.print("Input email: ");
     email = sc.next();
 
@@ -119,11 +136,30 @@ public class kegiatan2 {
     password = sc.next();
 
     ArrayList<Object> userInfo = usersDetails.get(email);
-    System.out.println(userInfo.get(0));
+    // for (String key : users.keySet()) {
+    if (users.containsKey(email) && users.get(email).equals(password)) {
+      if (!email.matches(".*@gmail\\.com$")) {
+        System.out.println("Format email tidak sesuai");
+        obj.login();
+      }
+
+      System.out.println("Login berhasil");
+      System.out.println("Nama: " + userInfo.get(0));
+      System.out.println("NIK: " + userInfo.get(1));
+      obj.pemilihan();
+    } else {
+      System.out.println("Gagal login");
+      obj.login();
+    }
+    // }
+    // } catch (Exception e) {
+    //   System.out.println("Email belum terdaftar");
+    //   obj.login();
+    // }
   }
 
   public void pemilihan() {
-    System.out.println("Selamat datang di Sistem Voting Online");
+    System.out.println("\nSelamat datang di Sistem Voting Online");
 
     System.out.println("Pilih kandidat yang ingin Anda dukung: ");
     for (String key : candidates.keySet()) {
@@ -138,6 +174,7 @@ public class kegiatan2 {
 
     candidates.put(vote, candidates.get(vote) + 1);
     System.out.println("Terima kasih, suara Anda telah direkam");
+    obj.menu();
   }
 
   public void hasil() {
@@ -147,5 +184,6 @@ public class kegiatan2 {
         "- Kandidat " + key + ": " + candidates.get(key) + " suara"
       );
     }
+    obj.menu();
   }
 }
