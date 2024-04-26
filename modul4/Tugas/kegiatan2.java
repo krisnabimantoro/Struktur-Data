@@ -40,7 +40,7 @@ public class kegiatan2 {
     } else if (pilih == 3) {
       obj.hasil();
     } else {
-      System.exit(1);
+      obj.logout();
     }
   }
 
@@ -183,5 +183,9 @@ public class kegiatan2 {
       );
     }
     obj.menu();
+  }
+
+  public void logout() {
+    System.exit(1);
   }
 }
