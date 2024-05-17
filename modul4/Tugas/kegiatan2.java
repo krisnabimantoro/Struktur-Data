@@ -8,9 +8,9 @@ public class kegiatan2 {
   static HashMap<String, ArrayList<Object>> usersDetails = new HashMap<>();
   static HashMap<String, Integer> candidates = new HashMap<>();
   static HashMap<String, Boolean> pemilihan = new HashMap<>();
-  // static ArrayList<Object> dataUser = new ArrayList<>();
+ 
 
-  static kegiatan2 obj = new kegiatan2();
+  static kegiatan2 obj = new    kegiatan2();
   static Scanner sc = new Scanner(System.in);
 
   public static void main(String[] args) {
@@ -76,7 +76,7 @@ public class kegiatan2 {
     //NIK
 
     do {
-      // try {
+      
         System.out.print("Input NIK: ");
         nik = sc.nextInt();
 
@@ -88,10 +88,7 @@ public class kegiatan2 {
             cekNik = false;
           }
         }
-      // } catch (Exception e) {
-      //   System.out.println("Input data tidak sesuai");
-      //   cekNik = true;
-      // }
+      
     } while (cekNik);
 
     users.put(email, password);
@@ -101,10 +98,7 @@ public class kegiatan2 {
     dataUser.add(nik);
     usersDetails.put(email, dataUser);
 
-    // for (Object mail : usersDetails.keySet()) {
-    //   System.out.println(mail);
-    //   System.out.println(usersDetails.get(mail));
-    // }
+ 
 
     System.out.println("Berhasil mendaftar");
     obj.menu();
@@ -113,7 +107,7 @@ public class kegiatan2 {
   public void login() {
     String email, password;
 
-    // try {
+   
     System.out.print("Input email: ");
     email = sc.next();
 
@@ -121,7 +115,7 @@ public class kegiatan2 {
     password = sc.next();
 
     ArrayList<Object> userInfo = usersDetails.get(email);
-    // for (String key : users.keySet()) {
+   
     if (users.containsKey(email) && users.get(email).equals(password)) {
       if (!email.matches(".*@gmail\\.com$")) {
         System.out.println("Format email tidak sesuai");
@@ -149,11 +143,7 @@ public class kegiatan2 {
       System.out.println("Gagal login");
       obj.login();
     }
-    // }
-    // } catch (Exception e) {
-    //   System.out.println("Email belum terdaftar");
-    //   obj.login();
-    // }
+
   }
 
   public void pemilihan() {
