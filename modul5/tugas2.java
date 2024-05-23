@@ -1,8 +1,11 @@
 package Praktikum.modul5;
 
-import java.lang.reflect.Array;
-import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.Iterator;
+import java.util.LinkedHashMap;
+import java.util.Map;
+import java.util.Map.Entry;
+import java.util.Scanner;
 
 class Node {
 
@@ -18,7 +21,8 @@ class Node {
 public class tugas2 {
 
   public Node root;
-  static HashMap<Integer, String> inventarisBuku = new HashMap<>();
+  static HashMap<Integer, String> inventarisBuku = new LinkedHashMap<>();
+  static Scanner sc = new Scanner(System.in);
 
   private Node NewNode(Node root, Node newData) {
     if (root == null) {
@@ -63,6 +67,8 @@ public class tugas2 {
 
   public static void main(String[] args) {
     tugas2 obj = new tugas2();
+    int isbn;
+    String namaBuku;
 
     inventarisBuku.put(123, "Java Programming");
     inventarisBuku.put(21, "Phyton Programming");
@@ -70,17 +76,42 @@ public class tugas2 {
     inventarisBuku.put(143, "Statistics");
     inventarisBuku.put(789, "Computer Networks");
 
+    obj.display();
+
+    System.out.println("\nTambah data: ");
+    System.out.print("ISBN: ");
+
+    isbn = sc.nextInt();
+    System.out.print("Nama Buku: ");
+    namaBuku = sc.next();
+    obj.tambahData(isbn, namaBuku);
+    obj.display();
+  }
+
+  public void tambahData(Integer isbn, String namaBuku) {
+    inventarisBuku.put(isbn, namaBuku);
+  }
+
+  public void display() {
+    tugas2 objDisplay = new tugas2();
+
     for (Integer key : inventarisBuku.keySet()) {
-      obj.NewNode(key);
+      objDisplay.NewNode(key);
     }
 
-    System.out.println("\nPre Order: ");
-    obj.preOrder(obj.root);
+    System.out.println(
+      "\nInventaris Buku (terurut berdasarkan ISBN - PreOrder): "
+    );
+    objDisplay.preOrder(objDisplay.root);
 
-    System.out.println("\nIn Order: ");
-    obj.inOrder(obj.root);
+    System.out.println(
+      "\nInventaris Buku (terurut berdasarkan ISBN - InOrder): "
+    );
+    objDisplay.inOrder(objDisplay.root);
 
-    System.out.println("\nPost Order: ");
-    obj.postOrder(obj.root);
+    System.out.println(
+      "\nInventaris Buku (terurut berdasarkan ISBN - PostOrder): "
+    );
+    objDisplay.postOrder(objDisplay.root);
   }
 }

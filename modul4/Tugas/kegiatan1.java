@@ -11,10 +11,14 @@ public static void main(String[] args) {
     HashMap<String, Integer> candidates = new HashMap<>();
 
     candidates.put("A", 0);
+    candidates.put("D", 0);
     candidates.put("C", 0);
-    candidates.put("B", 0);
+    candidates.put("S", 0);
 
     System.out.println("Selamat datang di Sistem Voting Online");
+    for (String key : candidates.keySet()) {
+      System.out.println("- Kandidat " + key);
+    }
 
     while (true) {
       System.out.println("Pilih kandidat yang ingin Anda dukung: ");
