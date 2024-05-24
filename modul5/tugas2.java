@@ -1,10 +1,7 @@
 package Praktikum.modul5;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedHashMap;
-import java.util.Map;
-import java.util.Map.Entry;
 import java.util.Scanner;
 
 class Node {
@@ -85,7 +82,34 @@ public class tugas2 {
     System.out.print("Nama Buku: ");
     namaBuku = sc.next();
     obj.tambahData(isbn, namaBuku);
+
     obj.display();
+
+    for (Integer key : inventarisBuku.keySet()) {
+      obj.NewNode(key);
+    }
+
+    System.out.println("\nCari Buku berdasarkan ISBN");
+
+    System.out.print("ISBN: ");
+    isbn = sc.nextInt();
+
+    obj.searchNode(obj.root, isbn);
+    // obj.display();
+  }
+
+  public void searchNode(Node root, int value) {
+    if (root == null) {
+      System.out.println("Buku tidak ditemukan");
+      return;
+    }
+    if (root.data == value) {
+      System.out.println("Nama Buku: " + inventarisBuku.get(value));
+    } else if (value < root.data) {
+      searchNode(root.left, value);
+    } else {
+      searchNode(root.right, value);
+    }
   }
 
   public void tambahData(Integer isbn, String namaBuku) {
@@ -113,5 +137,25 @@ public class tugas2 {
       "\nInventaris Buku (terurut berdasarkan ISBN - PostOrder): "
     );
     objDisplay.postOrder(objDisplay.root);
+  }
+}
+
+class SearchNode {
+
+  Node root; //root of a binary search tree
+
+  SearchNode() {
+    root = null;
+  }
+
+  public Node searchNode(Node root, int value) {
+    if (root == null) return null;
+    if (root.data == value) return root; else if (
+      value < root.data
+    ) return searchNode( // return true if value is found in binary tree
+      root.left,
+      value
+    ); //traverse left subtree
+    else return searchNode(root.right, value); //traverse right subtree
   }
 }
