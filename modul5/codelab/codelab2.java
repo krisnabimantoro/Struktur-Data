@@ -60,11 +60,11 @@ public class codelab2 {
     codelab2 tree = new codelab2();
 
     // Menentukan struktur tree
-    tree.NewNode(20);
-    tree.NewNode(2);
-    tree.NewNode(25);
-    tree.NewNode(37);
-    tree.NewNode(16);
+    tree.NewNode(123);
+    tree.NewNode(21);
+    tree.NewNode(143);
+    tree.NewNode(456);
+    tree.NewNode(789);
 
     System.out.println("\nPre Order: ");
     tree.preOrder(tree.root);

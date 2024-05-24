@@ -1,4 +1,4 @@
-package Praktikum.modul5;
+package Praktikum.modul5.tugas;
 
 import java.util.Scanner;
 
@@ -55,9 +55,9 @@ public class tugas1 {
 
     String input;
 
-    System.out.println("Tambahkan 6 data");
+    System.out.println("Tambahkan 6 anggota kelompok");
     for (int i = 1; i <= 6; i++) {
-      System.out.print("Data ke " + i + ": ");
+      System.out.print("Anggota ke " + i + ": ");
       input = sc.next();
       if (i == 1) {
         obj.addRoot(input);
@@ -69,7 +69,7 @@ public class tugas1 {
         obj.root.left.left = new Node(input);
       } else if (i == 5) {
         obj.root.left.right = new Node(input);
-      } else if (i == 2) {
+      } else if (i == 6) {
         obj.root.right.left = new Node(input);
       }
     }

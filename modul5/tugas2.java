@@ -1,6 +1,7 @@
 package Praktikum.modul5;
 
 import java.util.HashMap;
+import java.util.InputMismatchException;
 import java.util.LinkedHashMap;
 import java.util.Scanner;
 
@@ -70,18 +71,24 @@ public class tugas2 {
     inventarisBuku.put(123, "Java Programming");
     inventarisBuku.put(21, "Phyton Programming");
     inventarisBuku.put(456, "Data Structures and Algorithms");
-    inventarisBuku.put(143, "Statistics");
+    inventarisBuku.put(143, "Statistics");  
     inventarisBuku.put(789, "Computer Networks");
 
     obj.display();
 
-    System.out.println("\nTambah data: ");
-    System.out.print("ISBN: ");
+    try {
+      System.out.println("\nTambah data: ");
+      System.out.print("ISBN: ");
 
-    isbn = sc.nextInt();
-    System.out.print("Nama Buku: ");
-    namaBuku = sc.next();
-    obj.tambahData(isbn, namaBuku);
+      isbn = sc.nextInt();
+
+      System.out.print("Nama Buku: ");
+      namaBuku = sc.next();
+      obj.tambahData(isbn, namaBuku);
+    } catch (InputMismatchException e) {
+      System.out.println("ISBN harus berupa angka atau nomor buku");
+      System.exit(1);
+    }
 
     obj.display();
 
@@ -89,13 +96,17 @@ public class tugas2 {
       obj.NewNode(key);
     }
 
-    System.out.println("\nCari Buku berdasarkan ISBN");
+    try {
+      System.out.println("\nCari Buku berdasarkan ISBN");
 
-    System.out.print("ISBN: ");
-    isbn = sc.nextInt();
+      System.out.print("ISBN: ");
+      isbn = sc.nextInt();
 
-    obj.searchNode(obj.root, isbn);
-    // obj.display();
+      obj.searchNode(obj.root, isbn);
+    } catch (InputMismatchException e) {
+      System.out.println("ISBN harus berupa angka atau nomor buku");
+      System.exit(1);
+    }
   }
 
   public void searchNode(Node root, int value) {
