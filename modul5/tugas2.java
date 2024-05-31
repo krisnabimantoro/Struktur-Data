@@ -69,10 +69,13 @@ public class tugas2 {
     String namaBuku;
 
     inventarisBuku.put(123, "Java Programming");
+    inventarisBuku.put(789, "Computer Networks");
     inventarisBuku.put(21, "Phyton Programming");
     inventarisBuku.put(456, "Data Structures and Algorithms");
     inventarisBuku.put(143, "Statistics");  
-    inventarisBuku.put(789, "Computer Networks");
+    inventarisBuku.put(800, "Statistics");  
+    inventarisBuku.put(12, "mathematic");
+    inventarisBuku.put(70, "Calculus");  
 
     obj.display();
 

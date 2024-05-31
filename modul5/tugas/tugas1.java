@@ -56,7 +56,7 @@ public class tugas1 {
     String input;
 
     System.out.println("Tambahkan 6 anggota kelompok");
-    for (int i = 1; i <= 6; i++) {
+    for (int i = 1; i <= 8; i++) {
       System.out.print("Anggota ke " + i + ": ");
       input = sc.next();
       if (i == 1) {
@@ -71,6 +71,10 @@ public class tugas1 {
         obj.root.left.right = new Node(input);
       } else if (i == 6) {
         obj.root.right.left = new Node(input);
+      } else if (i == 7) {
+        obj.root.right.right = new Node(input);
+      } else if (i == 8) {
+        obj.root.right.right.left = new Node(input);
       }
     }
 
